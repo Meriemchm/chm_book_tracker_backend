@@ -6,10 +6,95 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String   @id @default(uuid())          // UUID unique
+  name      String
+  email     String   @unique
+  password  String
+  createdAt   DateTime  @default(now())
+  books     Book[]   // relation avec les livres
+  likes Like[]
+}
+
+model Category {
+  id    String     @id @default(uuid())
+  name  String     @unique
+  createdAt   DateTime  @default(now())
+  updatedAt DateTime @updatedAt
+  subCategories SubCategory[]
+}
+
+model SubCategory {
+  id         String   @id @default(uuid())
+  name       String
+  createdAt   DateTime  @default(now())
+  updatedAt DateTime @updatedAt
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  books      Book[]
+}
+
+
+model Book {
+  id          String    @id @default(uuid())   
+  title       String
+  rating      Float    // note 
+  isPublic       Boolean     @default(false) // false = privé
+  description String
+  image       String   // URL ou chemin de l'image
+  createdAt   DateTime  @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  
+  subCategoryId String
+  subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
+
+  readingStatusId String
+  readingStatus   ReadingStatus @relation(fields: [readingStatusId], references: [id])
+
+  likes Like[]
+
+
+  @@index([userId])
+  @@index([subCategoryId])
+  @@index([readingStatusId])
+}
+
+model ReadingStatus {
+  id    String  @id @default(uuid())
+  name  String  @unique  // ex: "Not Started", "Reading", "Finished", "Reread"
+  createdAt   DateTime  @default(now())
+  updatedAt DateTime @updatedAt
+  books Book[] 
+}
+
+
+model Like {
+  id        String   @id @default(uuid())
+  liked Boolean  @default(true) // true = like, false = unlike
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  userId String
+  user   User @relation(fields: [userId], references: [id])
+
+  bookId String
+  book   Book @relation(fields: [bookId], references: [id])
+
+  @@unique([userId, bookId]) // un utilisateur ne peut liker un livre qu'une seule fois
+  @@index([userId])
+  @@index([bookId]) 
+}
+
+
