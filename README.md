@@ -155,7 +155,7 @@ http://localhost:5000
 
 ---
 
-### Reading Status Routes (`/api/reading-status`)
+### Reading Status Routes (`/api/readingstatus`)
 
 | Method | Endpoint          | Description                          |
 |--------|--------------------|--------------------------------------|
