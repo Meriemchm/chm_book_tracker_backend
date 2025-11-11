@@ -165,6 +165,35 @@ http://localhost:5000
 | DELETE | `/:id`             | Remove a reading status              |
 
 
+## Contributing
+
+Contributions are welcome!  
+If you’d like to help improve this project, here’s how you can get started:
+
+1. **Fork** the repository  
+2. **Create a new branch** for your feature or fix  
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. Commit your changes
+   ```bash
+   Commit your changes
+   ```
+   
+4. Push your branch
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request describing your improvements
+
+---
+
+Your feedback and ideas help make this project better for everyone!
+
+⭐ If you like this project, don’t forget to give it a star on GitHub!
+
+
 
 
 
