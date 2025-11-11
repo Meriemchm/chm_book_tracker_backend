@@ -55,7 +55,7 @@ If you need to inspect your database visually, run:
 ```bash
 npx prisma studio
 ```
-Then open [http://localhost:5555].
+Then open [http://localhost:5555](http://localhost:5555).
 
 ---
 
@@ -100,7 +100,7 @@ http://localhost:5000
 
 ---
 
-## 📬 API Endpoints Overview
+## API Endpoints Overview
 
 ### Auth Routes (`/api/auth`)
 
