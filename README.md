@@ -106,7 +106,7 @@ http://localhost:5000
 
 | Method | Endpoint     | Description                        |
 |--------|---------------|------------------------------------|
-| POST   | `/register`   | Register a new user                |
+| POST   | `/signup`     | Register a new user                |
 | POST   | `/login`      | Authenticate user and get a JWT    |
 
 ---
