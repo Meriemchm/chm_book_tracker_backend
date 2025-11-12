@@ -20,8 +20,8 @@ Users can create accounts, track their books, write notes, and choose whether to
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/book-tracker-backend.git
-cd book-tracker-backend
+git clone https://github.com/Meriemchm/chm_book_tracker_backend.git
+cd chm_book_tracker_backend
 ```
 
 ### 2. Install dependencies
