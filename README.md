@@ -190,6 +190,7 @@ If you’d like to help improve this project, here’s how you can get started:
 ---
 
 ## Backend Hosting
+
 The backend is hosted online and accessible at:
 [https://chm-book-tracker-backend.onrender.com/](https://chm-book-tracker-backend.onrender.com/)
 
@@ -200,7 +201,7 @@ You can test the API using any HTTP client like **Postman**, **Insomnia**, or yo
 Example using JavaScript `fetch`:
 
 ```js
-fetch("https://your-backend-url.com/api/categories")
+fetch("https://chm-book-tracker-backend.onrender.com//api/categories")
   .then(res => res.json())
   .then(data => console.log(data))
   .catch(err => console.error(err));
