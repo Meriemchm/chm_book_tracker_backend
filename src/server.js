@@ -8,12 +8,15 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import subCategoryRoutes from "./routes/subCategoryRoutes.js";
 import likeRoutes from "./routes/likeRoutes.js";
 import readingStatusRoutes from "./routes/readingStatusRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 
 // Middlewares
+// Autoriser toutes les origines (pour dev)
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -28,7 +31,7 @@ app.use("/api/categories", categoryRoutes);
 
 app.use("/api/subcategories", subCategoryRoutes);
 
-app.use("/api/readingstatus",readingStatusRoutes);
+app.use("/api/readingstatus", readingStatusRoutes);
 
 app.use("api/likes", likeRoutes);
 
