@@ -189,6 +189,31 @@ If you’d like to help improve this project, here’s how you can get started:
 
 ---
 
+## Backend Hosting
+The backend is hosted online and accessible at:
+[https://chm-book-tracker-backend.onrender.com/](https://chm-book-tracker-backend.onrender.com/)
+
+
+### How to Test
+You can test the API using any HTTP client like **Postman**, **Insomnia**, or your frontend app.
+
+Example using JavaScript `fetch`:
+
+```js
+fetch("https://your-backend-url.com/api/categories")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+```
+
+Notes:
+
+- All routes are under /api/... (e.g., /api/auth, /api/users, /api/books, /api/categories, /api/subcategories, /api/likes, /api/readingstatus).
+
+- CORS is enabled, so requests from any frontend are allowed.
+
+---
+
 Your feedback and ideas help make this project better for everyone!
 
 ⭐ If you like this project, don’t forget to give it a star on GitHub!
