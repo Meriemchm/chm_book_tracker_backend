@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 // --------------------------- signup
 export const signup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser)
@@ -16,7 +16,7 @@ export const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await prisma.user.create({
-      data: { name, email, password: hashedPassword },
+      data: { username, email, password: hashedPassword },
     });
 
     // Generate JWT
@@ -36,7 +36,7 @@ export const signup = async (req, res) => {
 
     res.status(201).json({
       message: "User created with success.",
-      user: { id: newUser.id, name: newUser.name, email: newUser.email },
+      user: { id: newUser.id, username: newUser.username, email: newUser.email },
     });
   } catch (error) {
     console.error("Signup error:", error);
@@ -73,7 +73,7 @@ export const login = async (req, res) => {
 
     res.json({
       message: "Login successful.",
-      user: { id: user.id, name: user.name, email: user.email },
+      user: { id: user.id, username: user.username, email: user.email },
     });
   } catch (error) {
     console.error("Login error:", error);

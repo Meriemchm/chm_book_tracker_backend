@@ -9,7 +9,7 @@ export const getCurrentUser = async (req, res) => {
       where: { id: req.user.id },
       select: {
         id: true,
-        name: true,
+        username: true,
         email: true,
         books: true,
       },
