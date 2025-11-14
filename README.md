@@ -201,7 +201,7 @@ You can test the API using any HTTP client like **Postman**, **Insomnia**, or yo
 Example using JavaScript `fetch`:
 
 ```js
-fetch("https://chm-book-tracker-backend.onrender.com//api/categories")
+fetch("https://chm-book-tracker-backend.onrender.com/api/categories")
   .then(res => res.json())
   .then(data => console.log(data))
   .catch(err => console.error(err));
